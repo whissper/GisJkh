@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2006 sp2 U (http://www.altova.com) by any (Ru-Board) -->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" xmlns:nxsd="http://xmlns.oracle.com/pcbpel/nxsd" nxsd:version="XSD" nxsd:parseBom="true">
+	<xsd:element name="payments" type="PaymentsType"/>
+	<xsd:complexType name="PaymentsType">
+		<xsd:sequence>
+			<xsd:element name="systemID" type="IdSystemType">
+				<xsd:annotation>
+					<xsd:documentation>id системы</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="month">
+				<xsd:annotation>
+					<xsd:documentation>Месяц</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:int">
+						<xsd:maxInclusive value="12"/>
+						<xsd:minInclusive value="1"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="year">
+				<xsd:annotation>
+					<xsd:documentation>Год</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:short">
+						<xsd:minInclusive value="1920"/>
+						<xsd:maxInclusive value="2050"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="payment" type="PaymentType" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PaymentType">
+		<xsd:sequence>
+			<xsd:element name="id" type="IdType">
+				<xsd:annotation>
+					<xsd:documentation>id объекта в системе</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="bankAccountId" type="IdType">
+				<xsd:annotation>
+					<xsd:documentation>id банковского счета</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="accountId" type="IdType">
+				<xsd:annotation>
+					<xsd:documentation>id лицевого счета</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="paymentDocumentNumber" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Номер платежного документа</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="1"/>
+						<xsd:maxLength value="30"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<!--  <xsd:element name="orderID">
+                <xsd:annotation>
+                    <xsd:documentation>Уникальный идентификатор распоряжения</xsd:documentation>
+                </xsd:annotation>
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                        <xsd:length value="32"/>
+                    </xsd:restriction>
+                </xsd:simpleType>
+            </xsd:element>-->
+			<xsd:element name="ChargeService" type="ServiceDebtType" maxOccurs="unbounded"/>
+			<xsd:element name="debtPreviousPeriods" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Задолженность за предыдущие периоды, руб.</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:decimal">
+						<xsd:minInclusive value="0"/>
+						<xsd:maxInclusive value="99999999.99"/>
+						<xsd:fractionDigits value="2"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="advanceBllingPeriod" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Аванс на начало расчетного периода, руб.</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:decimal">
+						<xsd:minInclusive value="0"/>
+						<xsd:maxInclusive value="99999999.99"/>
+						<xsd:fractionDigits value="2"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="totalPiecemealPaymentSum" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Сумма к оплате с учетом рассрочки платежа
+                                       и процентов за рассрочку, руб.</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:decimal">
+						<xsd:minInclusive value="0"/>
+						<xsd:maxInclusive value="9999999999.99"/>
+						<xsd:fractionDigits value="2"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="expose" type="xsd:boolean">
+				<xsd:annotation>
+					<xsd:documentation>Выставлен на оплату</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="action" type="ActionType">
+				<xsd:annotation>
+					<xsd:documentation>действие над записью</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="IdSystemType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="255"/>
+			<xsd:minLength value="1"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="IdType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="255"/>
+			<xsd:minLength value="1"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="VolumeType">
+		<xsd:annotation>
+			<xsd:documentation>Тип объема</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:decimal">
+			<xsd:fractionDigits value="2"/>
+			<xsd:minInclusive value="0"/>
+			<xsd:totalDigits value="10"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="GUIDType">
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="([0-9a-fA-F]){8}-([0-9a-fA-F]){4}-([0-9a-fA-F]){4}-([0-9a-fA-F]){4}-([0-9a-fA-F]){12}"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="MoneyType">
+		<xsd:annotation>
+			<xsd:documentation>Сумма</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:decimal">
+			<xsd:totalDigits value="20"/>
+			<xsd:fractionDigits value="2"/>
+			<xsd:pattern value="\d+(\.\d{2})?"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="ActionType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="ADD"/>
+			<xsd:enumeration value="UPDATE"/>
+			<xsd:enumeration value="NONE"/>
+			<xsd:enumeration value="Add"/>
+			<xsd:enumeration value="Update"/>
+			<xsd:enumeration value="None"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="ServiceSingleDebtType">
+		<xsd:sequence>
+			<xsd:element name="month">
+				<xsd:annotation>
+					<xsd:documentation>Месяц</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:int">
+						<xsd:maxInclusive value="12"/>
+						<xsd:minInclusive value="1"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="year">
+				<xsd:annotation>
+					<xsd:documentation>Год</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:short">
+						<xsd:minInclusive value="1920"/>
+						<xsd:maxInclusive value="2050"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="codeService" type="IdType">
+				<xsd:annotation>
+					<xsd:documentation>код услуги</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="totalPayable" type="MoneyType">
+				<xsd:annotation>
+					<xsd:documentation>Итого к оплате за расчетный период, руб.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ServiceDebtType">
+		<xsd:choice>
+			<xsd:element name="housingService" type="ServiceSingleDebtType">
+				<xsd:annotation>
+					<xsd:documentation>Жилищная услуга</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="additionalService" type="ServiceSingleDebtType">
+				<xsd:annotation>
+					<xsd:documentation>Дополнительная услуга</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="municipalService" type="ServiceSingleDebtType">
+				<xsd:annotation>
+					<xsd:documentation>Главная коммунальная услуга</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:choice>
+	</xsd:complexType>
+</xsd:schema>

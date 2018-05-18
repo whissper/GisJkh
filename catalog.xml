@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="file:/C:/SAV2/nbworkspace/GisJkh/../../../SAV2_work/cur_trans/gisjkh_xsd/ApartamentHouseResidental.xsd" uri="xml-resources/jaxb/ApartamentHouseResidental/ApartamentHouseResidental.xsd"/>
+    <system systemId="file:/C:/SAV2/nbworkspace/GisJkh/../../../SAV2_work/cur_trans/gisjkh_xsd/ApartamentHouseLivingRoom.xsd" uri="xml-resources/jaxb/ApartamentHouseLivingRoom/ApartamentHouseLivingRoom.xsd"/>
+    <system systemId="file:/C:/SAV2/nbworkspace/GisJkh/../../../SAV2_work/cur_trans/gisjkh_xsd/LivingHouse.xsd" uri="xml-resources/jaxb/LivingHouse/LivingHouse.xsd"/>
+    <system systemId="file:/C:/SAV2/nbworkspace/GisJkh/../../../SAV2_work/cur_trans/gisjkh_xsd/MeteringDevices.xsd" uri="xml-resources/jaxb/MeteringDevices/MeteringDevices.xsd"/>
+    <system systemId="file:/C:/SAV2/nbworkspace/GisJkh/../../../SAV2_work/cur_trans/gisjkh_xsd/MeteringDeviceValues.xsd" uri="xml-resources/jaxb/MeteringDeviceValues/MeteringDeviceValues.xsd"/>
+    <system systemId="file:/C:/SAV2/nbworkspace/GisJkh/../../../SAV2_work/cur_trans/gisjkh_xsd/BankAccounts.xsd" uri="xml-resources/jaxb/BankAccounts/BankAccounts.xsd"/>
+    <system systemId="file:/C:/SAV2/nbworkspace/GisJkh/../../../SAV2_work/cur_trans/gisjkh_xsd/MunicipalServicePayment.xsd" uri="xml-resources/jaxb/MunicipalServicePayment/MunicipalServicePayment.xsd"/>
+    <system systemId="file:/C:/SAV2/nbworkspace/GisJkh/../../../SAV2_work/cur_trans/gisjkh_xsd/Houses.xsd" uri="xml-resources/jaxb/Houses/Houses.xsd"/>
+    <system systemId="file:/C:/SAV2/nbworkspace/GisJkh/../../../SAV2_work/cur_trans/gisjkh_xsd/ChargeDeptPayment.xsd" uri="xml-resources/jaxb/ChargeDeptPayment/ChargeDeptPayment.xsd"/>
+    <system systemId="file:/C:/SAV2/nbworkspace/GisJkh/../../../SAV2_work/cur_trans/gisjkh_xsd/Acknowledgment.xsd" uri="xml-resources/jaxb/Acknowledgment/Acknowledgment.xsd"/>
+    <system systemId="file:/C:/SAV2/nbworkspace/GisJkh/../../../SAV2_work/cur_trans/gisjkh_xsd/Notification.xsd" uri="xml-resources/jaxb/Notification/Notification.xsd"/>
+    <system systemId="file:/C:/SAV2/nbworkspace/GisJkh/../../../SAV2_work/cur_trans/gisjkh_xsd/ContractRSO.xsd" uri="xml-resources/jaxb/ContractRSO/ContractRSO.xsd"/>
+    <system systemId="file:/C:/SAV2/nbworkspace/GisJkh/../../../SAV2_work/cur_trans/gisjkh_xsd/AccountFLRSO.xsd" uri="xml-resources/jaxb/AccountFLRSO/AccountFLRSO.xsd"/>
+</catalog>

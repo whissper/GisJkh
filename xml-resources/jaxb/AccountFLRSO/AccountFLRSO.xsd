@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:nxsd="http://xmlns.oracle.com/pcbpel/nxsd" elementFormDefault="qualified" nxsd:version="XSD" nxsd:parseBom="true">
+	<xsd:element name="accounts" type="AccountsFLRSOType"/>
+	<xsd:complexType name="AccountsFLRSOType">
+		<xsd:sequence>
+			<xsd:element name="systemID" type="IdSystemType">
+				<xsd:annotation>
+					<xsd:documentation>id системы</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="accountFL" type="AccountFLRSOType" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AccountFLRSOType">
+		<!--<xsd:choice>-->
+			<xsd:sequence>
+				<xsd:element name="responsibility" type="RespType">
+					<xsd:annotation>
+						<xsd:documentation>полномочия УК, РСО, РКЦ</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="sourceOGRN" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>огранизация-источник данных ОГРН(ОГРНИП)</xsd:documentation>
+					</xsd:annotation>
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="15"/>
+							<xsd:minLength value="13"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="rkcOGRN" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>РКЦ огранизация ОГРН(ОГРНИП) для передачи данных</xsd:documentation>
+					</xsd:annotation>
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="15"/>
+							<xsd:minLength value="13"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="id" type="IdType">
+					<xsd:annotation>
+						<xsd:documentation>id объекта в системе</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="contracts" minOccurs="0">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="contractId" type="IdType" maxOccurs="unbounded">
+								<xsd:annotation>
+									<xsd:documentation>id договора в системе</xsd:documentation>
+								</xsd:annotation>
+							</xsd:element>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="creationDate" type="xsd:dateTime" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Дата начала действия ЛС</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="livingPersonsNumber" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Количество проживающих</xsd:documentation>
+					</xsd:annotation>
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:byte">
+							<xsd:maxInclusive value="99"/>
+							<xsd:minInclusive value="0"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="closeDate" type="xsd:date" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Дата закрытия</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="closeReason" type="IdType" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Идентификатор в ГИС ЖКХ</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="premises" maxOccurs="unbounded">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="premiseType" type="PremiseType" minOccurs="0">
+								<xsd:annotation>
+									<xsd:documentation>Тип объекта обслуживания</xsd:documentation>
+								</xsd:annotation>
+							</xsd:element>
+							<xsd:element name="premiseId" type="IdType">
+								<xsd:annotation>
+									<xsd:documentation>ID объекта обслуживания в биллинговой системе</xsd:documentation>
+								</xsd:annotation>
+							</xsd:element>
+							<xsd:element name="FIASID" type="GUIDType">
+								<xsd:annotation>
+									<xsd:documentation>id дома в ФИАС</xsd:documentation>
+								</xsd:annotation>
+							</xsd:element>
+							<xsd:element name="houseId" type="IdType">
+								<xsd:annotation>
+									<xsd:documentation>ID дома в биллинговой системе</xsd:documentation>
+								</xsd:annotation>
+							</xsd:element>							
+							<xsd:element name="premiseNum" type="PremisesNumType" minOccurs="0">
+								<xsd:annotation>
+									<xsd:documentation>номер помещения</xsd:documentation>
+								</xsd:annotation>
+							</xsd:element>
+							<xsd:element name="roomNum" type="PremisesNumType" minOccurs="0">
+								<xsd:annotation>
+									<xsd:documentation>номер комнаты</xsd:documentation>
+								</xsd:annotation>
+							</xsd:element>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="IsRenter" type="xsd:boolean" fixed="true" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Является нанимателем?</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="firstName">
+					<xsd:annotation>
+						<xsd:documentation>Имя</xsd:documentation>
+					</xsd:annotation>
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:minLength value="1"/>
+							<xsd:maxLength value="60"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="lastName">
+					<xsd:annotation>
+						<xsd:documentation>Фамилия</xsd:documentation>
+					</xsd:annotation>
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:minLength value="1"/>
+							<xsd:maxLength value="60"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="middleName" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Отчество</xsd:documentation>
+					</xsd:annotation>
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:minLength value="1"/>
+							<xsd:maxLength value="60"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="sex" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Пол (M- мужской, F-женский)</xsd:documentation>
+					</xsd:annotation>
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:minLength value="1"/>
+							<xsd:maxLength value="1"/>
+							<xsd:enumeration value="M"/>
+							<xsd:enumeration value="F"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="dateOfBirth" type="xsd:date" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Дата рождения</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="SNILS" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>СНИЛС</xsd:documentation>
+					</xsd:annotation>
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:pattern value="\d{11}"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="docType" type="IdType" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Тип документа удостоверяющего личность</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="docSeries" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Серия документа</xsd:documentation>
+					</xsd:annotation>
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:minLength value="1"/>
+							<xsd:maxLength value="45"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="docNumber" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Номер документа</xsd:documentation>
+					</xsd:annotation>
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:minLength value="1"/>
+							<xsd:maxLength value="45"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="docBeginDate" type="xsd:date" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Дата выдачи документа</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="totalSquare" type="SquareType" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Общая площадь для ЛС</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="residentialSquare" type="SquareType" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Жилая площадь</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="heatedArea" type="SquareType" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Отапливаемая площадь</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:sequence>
+			<!--
+			<xsd:sequence>
+				<xsd:element name="id" type="IdType">
+					<xsd:annotation>
+						<xsd:documentation>id объекта в системе</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="closeDate" type="xsd:date">
+					<xsd:annotation>
+						<xsd:documentation>Дата закрытия</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="closeReason" type="IdType">
+					<xsd:annotation>
+						<xsd:documentation>Идентификатор в ГИС ЖКХ</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:choice>
+			-->
+	</xsd:complexType>
+	<xsd:simpleType name="IdSystemType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="255"/>
+			<xsd:minLength value="1"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="IdType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="255"/>
+			<xsd:minLength value="1"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="GUIDType">
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="([0-9a-fA-F]){8}-([0-9a-fA-F]){4}-([0-9a-fA-F]){4}-([0-9a-fA-F]){4}-([0-9a-fA-F]){12}"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="SquareType">
+		<xsd:restriction base="xsd:decimal">
+			<xsd:fractionDigits value="4"/>
+			<xsd:minInclusive value="0"/>
+			<xsd:totalDigits value="25"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="PremiseType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="HOUSE"/>
+			<xsd:enumeration value="ROOM"/>
+			<xsd:enumeration value="RESIDENTAL"/>
+			<xsd:enumeration value="NONRESIDENTAL"/>
+			<xsd:enumeration value="House"/>
+			<xsd:enumeration value="Room"/>
+			<xsd:enumeration value="Residental"/>
+			<xsd:enumeration value="Nonresidental"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="PremisesNumType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="255"/>
+			<xsd:minLength value="1"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="RespType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="RSO"/>
+			<xsd:enumeration value="UK"/>
+			<xsd:enumeration value="RC"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?><!--
+            *** GENERATED FROM xml_binding_cfg.xml - DO NOT EDIT  ***
+            *** Configure thru JAXB Wizard.                       ***
+        --><project name="GisJkh_jaxb" default="default" basedir=".">
+    <target name="xjc-typedef-target" depends="-init-project">
+        <typedef classname="com.sun.tools.xjc.XJCTask" name="xjc" xmlns:s="http://xml.netbeans.org/schema/JAXBWizConfig">
+            <classpath path="${jaxbwiz.xjcdef.classpath}"/>
+        </typedef>
+    </target>
+    <target name="jaxb-clean-code-generation" depends="clean,jaxb-code-generation"/>
+    <target name="jaxb-code-generation" depends="xjc-typedef-target,-do-init,-init-macrodef-javac">
+        <mkdir dir="${build.generated.sources.dir}/jaxb" xmlns:s="http://xml.netbeans.org/schema/JAXBWizConfig"/>
+        <mkdir dir="build/generated/jaxbCache" xmlns:s="http://xml.netbeans.org/schema/JAXBWizConfig"/>
+        <mkdir dir="build/generated/jaxbCache/ApartamentHouseResidental"/>
+        <xjc package="org.whissper.apartamenthouseresidental" destdir="build/generated/jaxbCache/ApartamentHouseResidental" catalog="catalog.xml">
+            <classpath>
+                <pathelement location="${src.dir}"/>
+                <pathelement path="${jaxbwiz.xjcrun.classpath}"/>
+            </classpath>
+            <arg value="-xmlschema"/>
+            <schema file="xml-resources/jaxb/ApartamentHouseResidental/ApartamentHouseResidental.xsd"/>
+            <depends file="xml-resources/jaxb/ApartamentHouseResidental/ApartamentHouseResidental.xsd"/>
+            <produces dir="build/generated/jaxbCache/ApartamentHouseResidental"/>
+        </xjc>
+        <copy todir="${build.generated.sources.dir}/jaxb">
+            <fileset dir="build/generated/jaxbCache/ApartamentHouseResidental"/>
+        </copy>
+        <mkdir dir="build/generated/jaxbCache/ApartamentHouseLivingRoom"/>
+        <xjc package="org.whissper.apartamenthouselivingroom" destdir="build/generated/jaxbCache/ApartamentHouseLivingRoom" catalog="catalog.xml">
+            <classpath>
+                <pathelement location="${src.dir}"/>
+                <pathelement path="${jaxbwiz.xjcrun.classpath}"/>
+            </classpath>
+            <arg value="-xmlschema"/>
+            <schema file="xml-resources/jaxb/ApartamentHouseLivingRoom/ApartamentHouseLivingRoom.xsd"/>
+            <depends file="xml-resources/jaxb/ApartamentHouseLivingRoom/ApartamentHouseLivingRoom.xsd"/>
+            <produces dir="build/generated/jaxbCache/ApartamentHouseLivingRoom"/>
+        </xjc>
+        <copy todir="${build.generated.sources.dir}/jaxb">
+            <fileset dir="build/generated/jaxbCache/ApartamentHouseLivingRoom"/>
+        </copy>
+        <mkdir dir="build/generated/jaxbCache/LivingHouse"/>
+        <xjc package="org.whissper.livinghouse" destdir="build/generated/jaxbCache/LivingHouse" catalog="catalog.xml">
+            <classpath>
+                <pathelement location="${src.dir}"/>
+                <pathelement path="${jaxbwiz.xjcrun.classpath}"/>
+            </classpath>
+            <arg value="-xmlschema"/>
+            <schema file="xml-resources/jaxb/LivingHouse/LivingHouse.xsd"/>
+            <depends file="xml-resources/jaxb/LivingHouse/LivingHouse.xsd"/>
+            <produces dir="build/generated/jaxbCache/LivingHouse"/>
+        </xjc>
+        <copy todir="${build.generated.sources.dir}/jaxb">
+            <fileset dir="build/generated/jaxbCache/LivingHouse"/>
+        </copy>
+        <mkdir dir="build/generated/jaxbCache/MeteringDevices"/>
+        <xjc package="org.whissper.meteringdevices" destdir="build/generated/jaxbCache/MeteringDevices" catalog="catalog.xml">
+            <classpath>
+                <pathelement location="${src.dir}"/>
+                <pathelement path="${jaxbwiz.xjcrun.classpath}"/>
+            </classpath>
+            <arg value="-xmlschema"/>
+            <schema file="xml-resources/jaxb/MeteringDevices/MeteringDevices.xsd"/>
+            <depends file="xml-resources/jaxb/MeteringDevices/MeteringDevices.xsd"/>
+            <produces dir="build/generated/jaxbCache/MeteringDevices"/>
+        </xjc>
+        <copy todir="${build.generated.sources.dir}/jaxb">
+            <fileset dir="build/generated/jaxbCache/MeteringDevices"/>
+        </copy>
+        <mkdir dir="build/generated/jaxbCache/MeteringDeviceValues"/>
+        <xjc package="org.whissper.meteringdevicevalues" destdir="build/generated/jaxbCache/MeteringDeviceValues" catalog="catalog.xml">
+            <classpath>
+                <pathelement location="${src.dir}"/>
+                <pathelement path="${jaxbwiz.xjcrun.classpath}"/>
+            </classpath>
+            <arg value="-xmlschema"/>
+            <schema file="xml-resources/jaxb/MeteringDeviceValues/MeteringDeviceValues.xsd"/>
+            <depends file="xml-resources/jaxb/MeteringDeviceValues/MeteringDeviceValues.xsd"/>
+            <produces dir="build/generated/jaxbCache/MeteringDeviceValues"/>
+        </xjc>
+        <copy todir="${build.generated.sources.dir}/jaxb">
+            <fileset dir="build/generated/jaxbCache/MeteringDeviceValues"/>
+        </copy>
+        <mkdir dir="build/generated/jaxbCache/BankAccounts"/>
+        <xjc package="org.whissper.bankaccounts" destdir="build/generated/jaxbCache/BankAccounts" catalog="catalog.xml">
+            <classpath>
+                <pathelement location="${src.dir}"/>
+                <pathelement path="${jaxbwiz.xjcrun.classpath}"/>
+            </classpath>
+            <arg value="-xmlschema"/>
+            <schema file="xml-resources/jaxb/BankAccounts/BankAccounts.xsd"/>
+            <depends file="xml-resources/jaxb/BankAccounts/BankAccounts.xsd"/>
+            <produces dir="build/generated/jaxbCache/BankAccounts"/>
+        </xjc>
+        <copy todir="${build.generated.sources.dir}/jaxb">
+            <fileset dir="build/generated/jaxbCache/BankAccounts"/>
+        </copy>
+        <mkdir dir="build/generated/jaxbCache/MunicipalServicePayment"/>
+        <xjc package="org.whissper.municipalservicepayment" destdir="build/generated/jaxbCache/MunicipalServicePayment" catalog="catalog.xml">
+            <classpath>
+                <pathelement location="${src.dir}"/>
+                <pathelement path="${jaxbwiz.xjcrun.classpath}"/>
+            </classpath>
+            <arg value="-xmlschema"/>
+            <schema file="xml-resources/jaxb/MunicipalServicePayment/MunicipalServicePayment.xsd"/>
+            <depends file="xml-resources/jaxb/MunicipalServicePayment/MunicipalServicePayment.xsd"/>
+            <produces dir="build/generated/jaxbCache/MunicipalServicePayment"/>
+        </xjc>
+        <copy todir="${build.generated.sources.dir}/jaxb">
+            <fileset dir="build/generated/jaxbCache/MunicipalServicePayment"/>
+        </copy>
+        <mkdir dir="build/generated/jaxbCache/Houses"/>
+        <xjc package="org.whissper.houses" destdir="build/generated/jaxbCache/Houses" catalog="catalog.xml">
+            <classpath>
+                <pathelement location="${src.dir}"/>
+                <pathelement path="${jaxbwiz.xjcrun.classpath}"/>
+            </classpath>
+            <arg value="-xmlschema"/>
+            <schema file="xml-resources/jaxb/Houses/Houses.xsd"/>
+            <depends file="xml-resources/jaxb/Houses/Houses.xsd"/>
+            <produces dir="build/generated/jaxbCache/Houses"/>
+        </xjc>
+        <copy todir="${build.generated.sources.dir}/jaxb">
+            <fileset dir="build/generated/jaxbCache/Houses"/>
+        </copy>
+        <mkdir dir="build/generated/jaxbCache/ChargeDeptPayment"/>
+        <xjc package="org.whissper.chargedeptpayment" destdir="build/generated/jaxbCache/ChargeDeptPayment" catalog="catalog.xml">
+            <classpath>
+                <pathelement location="${src.dir}"/>
+                <pathelement path="${jaxbwiz.xjcrun.classpath}"/>
+            </classpath>
+            <arg value="-xmlschema"/>
+            <schema file="xml-resources/jaxb/ChargeDeptPayment/ChargeDeptPayment.xsd"/>
+            <depends file="xml-resources/jaxb/ChargeDeptPayment/ChargeDeptPayment.xsd"/>
+            <produces dir="build/generated/jaxbCache/ChargeDeptPayment"/>
+        </xjc>
+        <copy todir="${build.generated.sources.dir}/jaxb">
+            <fileset dir="build/generated/jaxbCache/ChargeDeptPayment"/>
+        </copy>
+        <mkdir dir="build/generated/jaxbCache/Acknowledgment"/>
+        <xjc package="org.whissper.acknowledgment" destdir="build/generated/jaxbCache/Acknowledgment" catalog="catalog.xml">
+            <classpath>
+                <pathelement location="${src.dir}"/>
+                <pathelement path="${jaxbwiz.xjcrun.classpath}"/>
+            </classpath>
+            <arg value="-xmlschema"/>
+            <schema file="xml-resources/jaxb/Acknowledgment/Acknowledgment.xsd"/>
+            <depends file="xml-resources/jaxb/Acknowledgment/Acknowledgment.xsd"/>
+            <produces dir="build/generated/jaxbCache/Acknowledgment"/>
+        </xjc>
+        <copy todir="${build.generated.sources.dir}/jaxb">
+            <fileset dir="build/generated/jaxbCache/Acknowledgment"/>
+        </copy>
+        <mkdir dir="build/generated/jaxbCache/ContractRSO"/>
+        <xjc package="org.whissper.contractrso" destdir="build/generated/jaxbCache/ContractRSO" catalog="catalog.xml">
+            <classpath>
+                <pathelement location="${src.dir}"/>
+                <pathelement path="${jaxbwiz.xjcrun.classpath}"/>
+            </classpath>
+            <arg value="-xmlschema"/>
+            <schema file="xml-resources/jaxb/ContractRSO/ContractRSO.xsd"/>
+            <depends file="xml-resources/jaxb/ContractRSO/ContractRSO.xsd"/>
+            <produces dir="build/generated/jaxbCache/ContractRSO"/>
+        </xjc>
+        <copy todir="${build.generated.sources.dir}/jaxb">
+            <fileset dir="build/generated/jaxbCache/ContractRSO"/>
+        </copy>
+        <mkdir dir="build/generated/jaxbCache/AccountFLRSO"/>
+        <xjc package="org.whissper.accountflrso" destdir="build/generated/jaxbCache/AccountFLRSO" catalog="catalog.xml">
+            <classpath>
+                <pathelement location="${src.dir}"/>
+                <pathelement path="${jaxbwiz.xjcrun.classpath}"/>
+            </classpath>
+            <arg value="-xmlschema"/>
+            <schema file="xml-resources/jaxb/AccountFLRSO/AccountFLRSO.xsd"/>
+            <depends file="xml-resources/jaxb/AccountFLRSO/AccountFLRSO.xsd"/>
+            <produces dir="build/generated/jaxbCache/AccountFLRSO"/>
+        </xjc>
+        <copy todir="${build.generated.sources.dir}/jaxb">
+            <fileset dir="build/generated/jaxbCache/AccountFLRSO"/>
+        </copy>
+    </target>
+</project>

@@ -1,0 +1,123 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<schemas xmlns='http://xml.netbeans.org/schema/JAXBWizConfig' destdir='build/generated-sources/jaxb' projectName='GisJkh' version='1.0'>
+	<schema type='-xmlschema' package='org.whissper.apartamenthouseresidental' name='ApartamentHouseResidental'>
+		<xjc-options>
+		</xjc-options>
+		<schema-sources>
+			<schema-source location='xml-resources/jaxb/ApartamentHouseResidental/ApartamentHouseResidental.xsd' origLocation='../../../SAV2_work/cur_trans/gisjkh_xsd/ApartamentHouseResidental.xsd'/>
+		</schema-sources>
+		<bindings>
+		</bindings>
+		<catalog/>
+	</schema>
+	<schema type='-xmlschema' package='org.whissper.apartamenthouselivingroom' name='ApartamentHouseLivingRoom'>
+		<xjc-options>
+		</xjc-options>
+		<schema-sources>
+			<schema-source location='xml-resources/jaxb/ApartamentHouseLivingRoom/ApartamentHouseLivingRoom.xsd' origLocation='../../../SAV2_work/cur_trans/gisjkh_xsd/ApartamentHouseLivingRoom.xsd'/>
+		</schema-sources>
+		<bindings>
+		</bindings>
+		<catalog/>
+	</schema>
+	<schema type='-xmlschema' package='org.whissper.livinghouse' name='LivingHouse'>
+		<xjc-options>
+		</xjc-options>
+		<schema-sources>
+			<schema-source location='xml-resources/jaxb/LivingHouse/LivingHouse.xsd' origLocation='../../../SAV2_work/cur_trans/gisjkh_xsd/LivingHouse.xsd'/>
+		</schema-sources>
+		<bindings>
+		</bindings>
+		<catalog/>
+	</schema>
+	<schema type='-xmlschema' package='org.whissper.meteringdevices' name='MeteringDevices'>
+		<xjc-options>
+		</xjc-options>
+		<schema-sources>
+			<schema-source location='xml-resources/jaxb/MeteringDevices/MeteringDevices.xsd' origLocation='../../../SAV2_work/cur_trans/gisjkh_xsd/MeteringDevices.xsd'/>
+		</schema-sources>
+		<bindings>
+		</bindings>
+		<catalog/>
+	</schema>
+	<schema type='-xmlschema' package='org.whissper.meteringdevicevalues' name='MeteringDeviceValues'>
+		<xjc-options>
+		</xjc-options>
+		<schema-sources>
+			<schema-source location='xml-resources/jaxb/MeteringDeviceValues/MeteringDeviceValues.xsd' origLocation='../../../SAV2_work/cur_trans/gisjkh_xsd/MeteringDeviceValues.xsd'/>
+		</schema-sources>
+		<bindings>
+		</bindings>
+		<catalog/>
+	</schema>
+	<schema type='-xmlschema' package='org.whissper.bankaccounts' name='BankAccounts'>
+		<xjc-options>
+		</xjc-options>
+		<schema-sources>
+			<schema-source location='xml-resources/jaxb/BankAccounts/BankAccounts.xsd' origLocation='../../../SAV2_work/cur_trans/gisjkh_xsd/BankAccounts.xsd'/>
+		</schema-sources>
+		<bindings>
+		</bindings>
+		<catalog/>
+	</schema>
+	<schema type='-xmlschema' package='org.whissper.municipalservicepayment' name='MunicipalServicePayment'>
+		<xjc-options>
+		</xjc-options>
+		<schema-sources>
+			<schema-source location='xml-resources/jaxb/MunicipalServicePayment/MunicipalServicePayment.xsd' origLocation='../../../SAV2_work/cur_trans/gisjkh_xsd/MunicipalServicePayment.xsd'/>
+		</schema-sources>
+		<bindings>
+		</bindings>
+		<catalog/>
+	</schema>
+	<schema type='-xmlschema' package='org.whissper.houses' name='Houses'>
+		<xjc-options>
+		</xjc-options>
+		<schema-sources>
+			<schema-source location='xml-resources/jaxb/Houses/Houses.xsd' origLocation='../../../SAV2_work/cur_trans/gisjkh_xsd/Houses.xsd'/>
+		</schema-sources>
+		<bindings>
+		</bindings>
+		<catalog/>
+	</schema>
+	<schema type='-xmlschema' package='org.whissper.chargedeptpayment' name='ChargeDeptPayment'>
+		<xjc-options>
+		</xjc-options>
+		<schema-sources>
+			<schema-source location='xml-resources/jaxb/ChargeDeptPayment/ChargeDeptPayment.xsd' origLocation='../../../SAV2_work/cur_trans/gisjkh_xsd/ChargeDeptPayment.xsd'/>
+		</schema-sources>
+		<bindings>
+		</bindings>
+		<catalog/>
+	</schema>
+	<schema type='-xmlschema' package='org.whissper.acknowledgment' name='Acknowledgment'>
+		<xjc-options>
+		</xjc-options>
+		<schema-sources>
+			<schema-source location='xml-resources/jaxb/Acknowledgment/Acknowledgment.xsd' origLocation='../../../SAV2_work/cur_trans/gisjkh_xsd/Acknowledgment.xsd'/>
+		</schema-sources>
+		<bindings>
+		</bindings>
+		<catalog/>
+	</schema>
+	<schema type='-xmlschema' package='org.whissper.contractrso' name='ContractRSO'>
+		<xjc-options>
+		</xjc-options>
+		<schema-sources>
+			<schema-source location='xml-resources/jaxb/ContractRSO/ContractRSO.xsd' origLocation='../../../SAV2_work/cur_trans/gisjkh_xsd/ContractRSO.xsd'/>
+		</schema-sources>
+		<bindings>
+		</bindings>
+		<catalog/>
+	</schema>
+	<schema type='-xmlschema' package='org.whissper.accountflrso' name='AccountFLRSO'>
+		<xjc-options>
+		</xjc-options>
+		<schema-sources>
+			<schema-source location='xml-resources/jaxb/AccountFLRSO/AccountFLRSO.xsd' origLocation='../../../SAV2_work/cur_trans/gisjkh_xsd/AccountFLRSO.xsd'/>
+		</schema-sources>
+		<bindings>
+		</bindings>
+		<catalog/>
+	</schema>
+</schemas>

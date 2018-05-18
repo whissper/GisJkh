@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:nxsd="http://xmlns.oracle.com/pcbpel/nxsd"
+elementFormDefault="qualified"
+nxsd:version="XSD" nxsd:encoding="windows-1251" nxsd:parseBom="true">
+<xsd:element name="houses" type="HousesLivingRoomType"/>
+	<xsd:complexType name="HousesLivingRoomType">
+		<xsd:sequence>
+			<xsd:element name="systemID" type="IdSystemType">
+				<xsd:annotation>
+					<xsd:documentation>id системы</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="house" type="ApartamentHousesLivingRoomType" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ApartamentHousesLivingRoomType">
+		<xsd:sequence>
+			<xsd:element name="houseID" type="IdType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>id дома в БС</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FIASID" type="GUIDType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>ФИАС id</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="apartamentHousesLivingRoom" type="ApartamentHouseLivingRoomType" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ApartamentHouseLivingRoomType">
+		<xsd:sequence>
+			<xsd:element name="id" type="IdType">
+				<xsd:annotation>
+					<xsd:documentation>id объекта в системе</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="cadastralInfo" type="CadastralInfoType">
+				<xsd:annotation>
+					<xsd:documentation>кадастровая информация</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="premiseNum" type="PremisesNumType">
+				<xsd:annotation>
+					<xsd:documentation>номер помещения</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="parentId" type="IdType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>id дома или квартиры</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>                        
+			<xsd:element name="entranceNum" type="EntranceNumType">
+				<xsd:annotation>
+					<xsd:documentation>номер подъезда</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="roomNumber" type="RoomNumberType">
+				<xsd:annotation>
+					<xsd:documentation>номер комнаты</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="square" type="SquareType">
+				<xsd:annotation>
+					<xsd:documentation>общая площадь комнаты</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="terminationDate" type="xsd:date" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>дата прекращения действия объекта</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="action" type="ActionType">
+				<xsd:annotation>
+					<xsd:documentation>действие над записью</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="IdSystemType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="255"/>
+			<xsd:minLength value="1"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="IdType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="255"/>
+			<xsd:minLength value="1"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="GUIDType">
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="([0-9a-fA-F]){8}-([0-9a-fA-F]){4}-([0-9a-fA-F]){4}-([0-9a-fA-F]){4}-([0-9a-fA-F]){12}"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="OKTMOType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="11"/>
+			<xsd:pattern value="\d{11}|\d{8}"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="PremisesNumType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="255"/>
+			<xsd:minLength value="1"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="EntranceNumType">
+		<xsd:restriction base="xsd:byte">
+			<xsd:maxInclusive value="99"/>
+			<xsd:minInclusive value="0"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="PremisesAreaType">
+		<xsd:restriction base="xsd:decimal">
+			<xsd:fractionDigits value="2"/>
+			<xsd:minInclusive value="0"/>
+			<xsd:totalDigits value="8"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="RoomNumberType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="255"/>
+			<xsd:minLength value="1"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="SquareType">
+		<xsd:restriction base="xsd:decimal">
+			<xsd:fractionDigits value="4"/>
+			<xsd:minInclusive value="0"/>
+			<xsd:totalDigits value="25"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="ActionType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="ADD"/>
+			<xsd:enumeration value="UPDATE"/>
+			<xsd:enumeration value="NONE"/>
+			<xsd:enumeration value="Add"/>
+			<xsd:enumeration value="Apdate"/>
+			<xsd:enumeration value="None"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="CadastralInfoType">
+		<xsd:choice>
+			<xsd:element name="cadastralNumber">
+				<xsd:annotation>
+					<xsd:documentation>Поиск в ГКН/ЕГРП по кадастровому номеру объекта
+                        недвижимости. При указании осуществляется привязка к ГКН
+                        и ЕГРП при наличии этих сведений в рееестрах. Перечень
+                        Субъектов РФ, по которым размещена информация в
+                        ГКН/ЕГРП, можно уточнить у Оператора ГИС ЖКХ. Наличие в
+                        экспорте указывает на установленную связь с ГКН/ЕГРП по
+                        этому элементу.</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="40"/>
+						<xsd:minLength value="1"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="no_RSO_GKN_EGRP_Registered" type="xsd:boolean" fixed="true">
+				<xsd:annotation>
+					<xsd:documentation>Ключ связи с ГКН/ЕГРП отсутствует. Может быть указан
+                        только при отсутствии сведений в ГКН и ЕГРП по Субъекту
+                        РФ в ГИС ЖКХ. Перечень Субъектов РФ, по которым
+                        размещена информация в ГКН, можно уточнить у Оператора
+                        ГИС ЖКХ.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="no_RSO_GKN_EGRP_Data" type="xsd:boolean" fixed="true">
+				<xsd:annotation>
+					<xsd:documentation>Признак отсутствия у РСО, импортирующего дом, сведений о
+                        кадастровом номере и других ключей, позволяющих
+                        установить связь с ГКН/ЕГРП</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:choice>
+	</xsd:complexType>
+</xsd:schema>

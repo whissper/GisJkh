@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+xmlns:nxsd="http://xmlns.oracle.com/pcbpel/nxsd"
+elementFormDefault="qualified"
+nxsd:version="XSD" nxsd:parseBom="true" >
+	<xsd:element name="devices" type="DevicesType"/>
+        <xsd:complexType name="DevicesType">
+		<xsd:sequence>
+                        <xsd:element name="systemID" type="IdSystemType">
+                            <xsd:annotation>
+                                <xsd:documentation>id системы</xsd:documentation>
+                            </xsd:annotation>
+                        </xsd:element>    
+                        <xsd:element name="device" type="DeviceType" maxOccurs="unbounded"/>   
+                </xsd:sequence>
+        </xsd:complexType>		
+        <xsd:complexType name="DeviceType">
+		<xsd:sequence> 
+                        <xsd:element name="id" type="IdType">
+                            <xsd:annotation>
+                                <xsd:documentation>id объекта в системе</xsd:documentation>
+                            </xsd:annotation>
+                        </xsd:element>  
+                         <xsd:element name="HouseID" type="IdType">
+                            <xsd:annotation>
+                                <xsd:documentation>id дома в БС</xsd:documentation>
+                            </xsd:annotation>
+                        </xsd:element>    
+			<xsd:element name="deviceNumber">
+				<xsd:annotation>
+					<xsd:documentation>Номер ПУ</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="50"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="stamp">
+				<xsd:annotation>
+					<xsd:documentation>Марка ПУ</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="50"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+                        <xsd:element name="model">
+				<xsd:annotation>
+					<xsd:documentation>Модель ПУ</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="50"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+
+			<xsd:element name="installDate" type="xsd:date" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Дата установки</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="commissDate" type="xsd:date">
+				<xsd:annotation>
+					<xsd:documentation>Дата ввода в эксплуатацию</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+                        <xsd:element name="remoteMode" type="xsd:boolean">
+				<xsd:annotation>
+					<xsd:documentation>Наличие возможности дистанционного снятия показаний</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="factorySealDate" type="xsd:date">
+				<xsd:annotation>
+					<xsd:documentation>Дата опломбирования ПУ заводом-изготовителем (обязательно для заполнения при импорте)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="temperatureSensor" type="xsd:boolean">
+				<xsd:annotation>
+					<xsd:documentation>Наличие датчиков температры</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="pressureSensor" type="xsd:boolean">
+				<xsd:annotation>
+					<xsd:documentation>Наличие датчиков давления</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>                        
+                        <xsd:element name="firstVerificationDate" type="xsd:date">
+                                <xsd:annotation>
+					<xsd:documentation>Дата первичной поверки</xsd:documentation>
+                                </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element name="verificationInterval" type="IdType">
+				<xsd:annotation>
+					<xsd:documentation>Межповерочный интервал (НСИ 16)</xsd:documentation>
+                                </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element name="collectiveDevice" type="xsd:boolean" fixed="true" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Признак общедомового ПУ (значение справочника "Тип прибора учета" = коллективный (общедомомвой))</xsd:documentation>
+                                </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element name="collectiveDeviceInfo" minOccurs="0">
+                                <xsd:complexType>
+                                <xsd:sequence>
+                                        <xsd:element name="RemoteMeteringInfo" minOccurs="0">
+                                                <xsd:annotation>
+                                                        <xsd:documentation>наименования установленной системы</xsd:documentation>
+                                                </xsd:annotation>
+                                                <xsd:simpleType>
+                                                         <xsd:restriction base="xsd:string">
+                                                                <xsd:maxLength value="2000"/>
+                                                         </xsd:restriction>
+                                                </xsd:simpleType>
+                                        </xsd:element>
+                                        <xsd:element name="TemperatureSensingElementInfo" minOccurs="0">
+                                                <xsd:annotation>
+                                                        <xsd:documentation>Информация о наличии датчиков температуры с указанием их местоположения на узле учета</xsd:documentation>
+						</xsd:annotation>
+                                                <xsd:simpleType>
+                                                        <xsd:restriction base="xsd:string">
+                                                                <xsd:maxLength value="2000"/>
+                                                        </xsd:restriction>
+                                                </xsd:simpleType>
+                                        </xsd:element>
+                                        <xsd:element name="PressureSensingElementInfo" minOccurs="0">
+                                                <xsd:annotation>
+                                                        <xsd:documentation>Информация о наличии датчиков давления с указанием их местоположения на узле учета</xsd:documentation>
+                                                </xsd:annotation>
+                                                <xsd:simpleType>
+                                                        <xsd:restriction base="xsd:string">
+                                                                <xsd:maxLength value="2000"/>
+                                                        </xsd:restriction>
+                                                </xsd:simpleType>
+                                        </xsd:element>
+                                        </xsd:sequence>
+                                </xsd:complexType>
+                                
+                        </xsd:element>
+			<xsd:choice>
+				<xsd:element name="accounts" minOccurs="0" maxOccurs="unbounded">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="accountId" type="IdType" maxOccurs="unbounded">
+								<xsd:annotation>
+									<xsd:documentation>Идентификатор ЛС.</xsd:documentation>
+								</xsd:annotation>
+							</xsd:element>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="accountId" type="IdType" maxOccurs="unbounded" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Идентификатор ЛС.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:choice>
+			<xsd:element name="premiseId" type="IdType" maxOccurs="unbounded" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Идентификатор ОО.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+                        <xsd:element name="value1" type="MeteringValueType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Базовое показание</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+                        <xsd:element name="resource1" type="IdType" minOccurs="0">
+                            <xsd:annotation>
+				<xsd:documentation>Коммунальный ресурс</xsd:documentation>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element name="value2" type="MeteringValueType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Базовое показание</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+                        <xsd:element name="resource2" type="IdType" minOccurs="0">
+                            <xsd:annotation>
+				<xsd:documentation>Коммунальный ресурс</xsd:documentation>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element name="value3" type="MeteringValueType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Базовое показание</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+                        <xsd:element name="resource3" type="IdType" minOccurs="0">
+                            <xsd:annotation>
+				<xsd:documentation>Коммунальный ресурс</xsd:documentation>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element name="valueT1" type="MeteringValueType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Базовое показание T1</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="valueT2" type="MeteringValueType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Базовое показание T2</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="valueT3" type="MeteringValueType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Базовое показание T3. В зависимости от количества заданных при создании базовых значений ПУ определяется его тип по количеству тарифов.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+                        <xsd:element name="transformationRatio" minOccurs="0">
+                                <xsd:annotation>
+                                        <xsd:documentation>Кэффициент трансформации</xsd:documentation>
+                                </xsd:annotation>
+                                <xsd:simpleType>
+                                        <xsd:restriction base="xsd:decimal">
+                                                <xsd:fractionDigits value="2"/>
+                                                <xsd:minInclusive value="0"/>
+                                                <xsd:maxInclusive value="999999999999999.99"/>
+                                        </xsd:restriction>
+                                </xsd:simpleType>
+                        </xsd:element>
+			<xsd:element name="readoutDate" type="xsd:dateTime">
+				<xsd:annotation>
+					<xsd:documentation>Время и дата снятия показания</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+                        <xsd:element name="readingSource" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>кем внесено показания</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="archivingReason" type="IdType" minOccurs="0">
+                            <xsd:annotation>
+					<xsd:documentation>Причина .</xsd:documentation>
+                            </xsd:annotation>
+                        </xsd:element>                        
+                        <xsd:element name="archivingDate" type="xsd:dateTime" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Время и дата снятия показания</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="action" type="ActionType">		
+                            <xsd:annotation>
+                                <xsd:documentation>действие над записью</xsd:documentation>
+                            </xsd:annotation>
+                        </xsd:element>                          
+        	</xsd:sequence>
+	</xsd:complexType>
+
+
+
+        <xsd:simpleType name="IdSystemType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="255"/>
+			<xsd:minLength value="1"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+        <xsd:simpleType name="IdType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="255"/>
+			<xsd:minLength value="1"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+       	<xsd:simpleType name="GUIDType">
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="([0-9a-fA-F]){8}-([0-9a-fA-F]){4}-([0-9a-fA-F]){4}-([0-9a-fA-F]){4}-([0-9a-fA-F]){12}"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+
+  
+        
+	<xsd:simpleType name="MeteringValueType">
+                <xsd:restriction base="xsd:decimal">
+			<xsd:fractionDigits value="4"/>
+			<xsd:maxInclusive value="999999999999999.9999"/>
+			<xsd:minInclusive value="0"/>
+			<xsd:pattern value="\d+\.\d{4}"/>
+		</xsd:restriction>
+	</xsd:simpleType>      
+
+
+	<xsd:simpleType name="ActionType">
+		<xsd:restriction base="xsd:string">
+                        <xsd:enumeration value="ADD"/>
+                        <xsd:enumeration value="UPDATE"/>
+                        <xsd:enumeration value="NONE"/>
+                        <xsd:enumeration value="Add"/>
+                        <xsd:enumeration value="Update"/>
+                        <xsd:enumeration value="None"/>
+		</xsd:restriction>
+	</xsd:simpleType>        
+</xsd:schema>
